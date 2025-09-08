@@ -13,6 +13,7 @@ func HtmlMailer(
 	subject string,
 	sender string,
 	templatePath string,
+	attachments []Attachment,
 	recipients []string,
 	session Session,
 	batchSize int,
@@ -24,9 +25,9 @@ func HtmlMailer(
 	}
 
 	htmlString := string(htmlContent)
-	attachments := []Attachment{
-		NewAttachment("logo.png", ExampleLogo, "image/png", "logo.png", "true"),
-	}
+	//attachments := []Attachment{
+	//	NewAttachment("logo.png", ExampleLogo, "image/png", "logo.png", "true"),
+	//}
 
 	email := NewMessage(
 		subject,
