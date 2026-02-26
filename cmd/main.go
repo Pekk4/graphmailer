@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/pekk4/graphmailer/pkg/graphmailer"
+	m "github.com/pekk4/graphmailer/pkg/graphmailer"
 )
 
 func main() {
-	session := graphmailer.InitSession()
+	session := m.InitSession()
 
 	recipients := []string{
 		"example@example.com",
@@ -14,6 +14,9 @@ func main() {
 	subject := "This is subject!"
 	template := "../static/templates/template.html"
 	sender := "do-not-reply@example.com"
+	attachments := []m.Attachment{
+		m.NewAttachment("logo.png", m.ExampleLogo, "image/png", "logo.png", "true"),
+	}
 
-	graphmailer.HtmlMailer(subject, sender, template, recipients, session, 500, 3)
+	m.HtmlMailer(subject, sender, template, attachments, recipients, session, 500, 3)
 }

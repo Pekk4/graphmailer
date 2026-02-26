@@ -25,9 +25,6 @@ func HtmlMailer(
 	}
 
 	htmlString := string(htmlContent)
-	//attachments := []Attachment{
-	//	NewAttachment("logo.png", ExampleLogo, "image/png", "logo.png", "true"),
-	//}
 
 	email := NewMessage(
 		subject,
